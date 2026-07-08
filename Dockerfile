@@ -1,6 +1,6 @@
 FROM n8nio/n8n:latest
 USER root
- 
+
 # Install wget + fonts, then pull FFmpeg from BtbN (Alpine-compatible: no curl, no --wildcards)
 RUN apk add --no-cache wget ttf-dejavu \
     && wget -qO /tmp/ff.tar.xz \
@@ -12,7 +12,8 @@ RUN apk add --no-cache wget ttf-dejavu \
         ffmpeg-master-latest-linux64-gpl/bin/ffprobe \
     && rm /tmp/ff.tar.xz \
     && chmod +x /usr/local/bin/ffmpeg /usr/local/bin/ffprobe
- 
+
 # No USER node — keeps root to avoid Railway volume permission issues
+
  
 
